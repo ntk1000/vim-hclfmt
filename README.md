@@ -1,15 +1,6 @@
-# Archived project. No maintenance. 
-
-This project is not maintained anymore and is archived. Feel free to fork and
-make your own changes if needed. For more detail read my blog post: [Taking an indefinite sabbatical from my projects](https://arslan.io/2018/10/09/taking-an-indefinite-sabbatical-from-my-projects/)
-
-Thanks to everyone for their valuable feedback and contributions.
-
 # vim-hclfmt
 
-Vim plugin to format Hashicorp Configuration Language (HCL) files, this
-format is used by a number of Hashicorp tools, such as Terraform as the
-language used for configuration.
+Vim plugin to format Hashicorp Configuration Language (HCL) files, using `terraform fmt` itself.
 
 The plugin by default will format `*.hcl`, `*.tf` and `*.nomad` files on save.
 Under the hood it uses [hclfmt](https://github.com/fatih/hclfmt) to process the
@@ -19,7 +10,7 @@ files.
 
 ## Usage
 
-Save the file or call `:HclFmt`.
+Save the file or call `:HclFmt2`.
 
 By default vim-hclfmt automatically formats *.hcl, *.tf and *.nomad files. You can permanently set this configuration in your `~/.vimrc` as follows:
 
@@ -43,6 +34,3 @@ plugin's install command.
 *  [Vundle](https://github.com/gmarik/vundle)
   * `Plugin 'fatih/vim-hclfmt'`
 
-If [hclfmt](https://github.com/fatih/hclfmt) is not already installed:
-
-    go get github.com/fatih/hclfmt

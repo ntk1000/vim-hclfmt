@@ -4,14 +4,14 @@ if !exists('g:hcl_fmt_fail_silently')
     let g:hcl_fmt_fail_silently = 0
 endif
 
-if !exists('g:hcl_fmt_options')
-    let g:hcl_fmt_options = ''
+if !exists('g:terraform_fmt_options')
+    let g:terraform_fmt_options = ''
 endif
 
 " Below function is copied from vim-go's fmt.vim file.
 function! fmt#Format()
-    if !executable("hclfmt")
-        echo "hclfmt: could not find hclfmt. Please install it from github.com/fatih/hclfmt"
+    if !executable("terraform")
+        echo "vim-hclfmt: could not find terraform."
         return ""
     endif
 
@@ -22,10 +22,10 @@ function! fmt#Format()
     let l:tmpname = tempname()
     call writefile(getline(1, '$'), l:tmpname)
 
-    let fmt_command = "hclfmt"
+    let fmt_command = "terraform fmt"
 
     " populate the final command with user based fmt options
-    let command = fmt_command . ' -w ' . g:hcl_fmt_options
+    let command = fmt_command . ' -write=true ' . g:terraform_fmt_options
 
     " execute our command...
     let out = system(command . " " . l:tmpname)
